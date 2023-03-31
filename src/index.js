@@ -3,7 +3,14 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-
+const loadPyodides = async () => {
+  const pyodide = await window.loadPyodide({
+    indexURL: "https://cdn.jsdelivr.net/pyodide/v0.22.1/full/",
+    args: ["1", "2", "3"],
+  });
+  window.pyodides = pyodide;
+};
+loadPyodides();
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
